@@ -1,4 +1,7 @@
-import { GET_TRENDING_PLAYLISTS_FILTERS } from "../../javascript/constants";
+import {
+    GET_TRENDING_PLAYLISTS_FILTERS,
+    SET_FILTER,
+} from "../../javascript/constants";
 import reducer from "../../javascript/reducers/filters.js";
 
 describe("The filters action creators", () => {
@@ -12,10 +15,25 @@ describe("The filters action creators", () => {
         };
         
         const newState = reducer({}, action);
+
         expect(newState).toMatchObject({
             foo: { "name": "bar" },
             bar: { "name": "baz" },
         });
+    });
+    
+    it("should set the corresponding filter field", () => {
+        const action = { 
+            type: SET_FILTER,
+            payload: {
+                field: "foo",
+                value: "bar",
+            },
+        };
+
+        const newState = reducer({}, action);
+
+        expect(newState["foo"]).toEqual("bar");
     });
 
     it("should not change state otherwise", () => {
@@ -27,6 +45,7 @@ describe("The filters action creators", () => {
         const state = { filters: {} }
         
         const newState = reducer(state, action);
+
         expect(newState).toEqual(state);
     });
 })

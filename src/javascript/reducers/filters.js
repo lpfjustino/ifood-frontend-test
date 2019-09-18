@@ -1,5 +1,8 @@
 import _ from "lodash";
-import { GET_TRENDING_PLAYLISTS_FILTERS } from "../constants/index.json";
+import {
+    GET_TRENDING_PLAYLISTS_FILTERS,
+    SET_FILTER,
+} from "../constants/index.json";
 import { groupById } from "../utils";
 
 const defaultState = {
@@ -14,6 +17,13 @@ export default (state = defaultState, action) => {
             ...state,
             ...groupById(filters),
         };
+
+        case SET_FILTER:
+        const { field, value } = action.payload;
+        return {
+            ...state,
+            [field]: value,
+        }
         
         case `${GET_TRENDING_PLAYLISTS_FILTERS}_REJECTED`:
         default:
