@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import InputRange from 'react-input-range';
+import _ from 'lodash';
 
 export default class Filter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 0,
+            value: 1,
         }
     }
     componentDidMount() {
@@ -13,18 +14,19 @@ export default class Filter extends Component {
     }
 
     renderLimitRange() {
-        const isFilterAvailable = this.props.filters.limit;
-        if (!isFilterAvailable) {
+        const limitFilter = this.props.filters.limit;
+        if (!limitFilter) {
             return;
         }
 
-        const isFilterLoaded = isFilterAvailable.min && isFilterAvailable.max;
-        const { max = 100, min = 0 } = this.props.filters.limit;
+        const min = _.get(limitFilter, "validation.min", null);
+        const max = _.get(limitFilter, "validation.max", null);
+        const isFilterLoaded = min && max;
 
         return (<InputRange
             maxValue={max}
             minValue={min}
-            disabled={isFilterLoaded}
+            disabled={!isFilterLoaded}
             value={this.state.value}
             onChange={value => this.setState({ value })} />);
     }
