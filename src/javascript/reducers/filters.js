@@ -9,7 +9,6 @@ export default (state = defaultState, action) => {
 
     switch (action.type) {
         case `${GET_TRENDING_PLAYLISTS_FILTERS}_FULFILLED`:
-        console.log(action.payload);
         return {
             ...state,
             filters: _.get(action, "payload.data.filters", defaultState.filters),
