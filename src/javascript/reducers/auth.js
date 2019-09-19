@@ -8,7 +8,6 @@ export default (state = defaultState, action) => {
 
     switch (action.type) {
         case SET_ACCESS_TOKEN:
-            console.log(action.payload)
             return {
                 ...state,
                 accessToken: action.payload.token,

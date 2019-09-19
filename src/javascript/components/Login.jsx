@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { SPOTIFY_AUTHORIZE } from "../constants/urls";
 import { parseHash } from "../utils/index.js";
+import PropTypes from "prop-types";
 
 export default class Login extends Component {
 
@@ -27,9 +28,13 @@ export default class Login extends Component {
         const { accessToken } = this.props;
 
         return !accessToken && (
-            <div>
+            <div className="login-container">
                 <a href={this.getLoginURL()}>Login</a>
             </div>
         )
     }
+}
+
+Login.propType = {
+    getLoginUrl: PropTypes.func.isRequired,
 }
