@@ -1,11 +1,10 @@
-import React from 'react';
-import Filter from '../containers/filter';
+import React, { Component } from 'react';
 import Login from '../containers/Login';
+import Filter from '../containers/Filter';
 import { Provider } from "react-redux";
 import store from "../store";
 
-class App extends React.Component {
-
+class App extends Component {
   render() {
     return (
       <Provider store={store}>
