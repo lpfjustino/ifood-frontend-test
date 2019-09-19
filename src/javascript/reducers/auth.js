@@ -1,16 +1,17 @@
-import ROLE_SCOPE_GROUP_GET_DETAILS from "../constants";
+import { SET_ACCESS_TOKEN } from "../constants/index.json";
 
 const defaultState = {
-    filters: [],
+    accessToken: null,
 }
 
 export default (state = defaultState, action) => {
 
     switch (action.type) {
-        case `${ROLE_SCOPE_GROUP_GET_DETAILS}_FULFILLED`:
+        case SET_ACCESS_TOKEN:
+            console.log(action.payload)
             return {
                 ...state,
-                filters: action.payload,
+                accessToken: action.payload.token,
             };
 
         default:
