@@ -11,7 +11,7 @@ export default class Filter extends Component {
 
     render() {
         const { filters, limitValue, getFilters, setFilter } = this.props;
-
+        console.log(filters)
         return (
             <div className="filters-container">
                 <div className="filter-container" id="limit-filter-container">
@@ -24,21 +24,23 @@ export default class Filter extends Component {
                 </div>
                 <div className="filter-container">
                     <SelectFilter
-                        filter={ filters.locale }
+                        filter={ filters }
                         setFilter={ setFilter }
                         name="locale"
                         />
                 </div>
                 <div className="filter-container">
                     <SelectFilter
-                        filter={ filters.country }
+                        filter={ filters }
                         setFilter={ setFilter }
                         name="country"
                         />
                 </div>
                 <div className="filter-container">
                     <DateFilter
-                        filter = { filters.timestamp }
+                        filter = { filters }
+                        setFilter={ setFilter }
+                        name="timestamp"
                         />
                 </div>
             </div>
