@@ -3,7 +3,7 @@ import FeaturedPlaylists from "../components/FeaturedPlaylists";
 
 function mapStateToProps(state) {
     return {
-        accessToken: state.auth.accessToken,
+        accessToken: state.spotify.accessToken,
     };
 }
 

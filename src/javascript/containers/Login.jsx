@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
-import authActions from "../actions/auth";
+import spotifyActions from "../actions/spotify";
 import Login from "../components/Login";
 
 function mapStateToProps(state) {
     return {
-        accessToken: state.auth.accessToken,
+        accessToken: state.spotify.accessToken,
     };
 }
 
