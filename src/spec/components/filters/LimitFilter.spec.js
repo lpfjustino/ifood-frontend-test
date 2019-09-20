@@ -5,12 +5,12 @@ import LimitFilter from '../../../javascript/components/filters/LimitFilter';
 
 describe("The LimitFilter component", () => {
     let wrapper;
-    const mockGetFilters = jest.fn();
     const mockSetFilters = jest.fn();
+    const mockName = "limit";
     const mockProps = {
-        getFilters: mockGetFilters,
         setFilter: mockSetFilters,
         limitValue: 0,
+        name: mockName,
     }
 
     beforeEach(() => {
@@ -22,6 +22,12 @@ describe("The LimitFilter component", () => {
         const inputRange = wrapper.find(InputRange);
 
         expect(inputRange.length).toEqual(0);
+    });
+    
+    it("should call setFilter from props when handleChange is called", () => {
+        const mockLimit = {};
+        wrapper.instance().handleChange(mockLimit);
+        expect(mockSetFilters).toHaveBeenCalledWith(mockName, mockLimit);
     });
         
     it("should pass down props from the filter to the InputRange component", () => {

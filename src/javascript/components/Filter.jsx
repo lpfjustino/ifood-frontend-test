@@ -12,8 +12,7 @@ export default class Filter extends Component {
     }
 
     render() {
-        const { filters, limitValue, getFilters, setFilter } = this.props;
-        console.log(filters)
+        const { filters, getFilters, setFilter } = this.props;
         const {
             limit,
             locale,
@@ -28,9 +27,9 @@ export default class Filter extends Component {
                     <div className="filter-name">{ (limit && limit.name) || "" }</div>
                     <LimitFilter
                         filter={ filters.limit }
-                        getFilters={ getFilters }
-                        limitValue={ limitValue }
+                        limitValue={ filters.values.limit }
                         setFilter={ setFilter }
+                        name="limit"
                         />
                 </div>
                 <div className="filter-container">
@@ -52,8 +51,9 @@ export default class Filter extends Component {
                 <div className="filter-container">
                     <div className="filter-name">{ (timestamp && timestamp.name) || "" }</div>
                     <DateFilter
-                        filter = { filters.timestamp }
+                        filter={ filters.timestamp }
                         setFilter={ setFilter }
+                        value={ filters.values.timestamp }
                         name="timestamp"
                         />
                 </div>

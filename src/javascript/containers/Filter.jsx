@@ -5,7 +5,6 @@ import Filter from "../components/Filter";
 function mapStateToProps(state) {
     return {
         filters: state.filters,
-        limitValue: state.filters.limitValue,
     };
 }
 

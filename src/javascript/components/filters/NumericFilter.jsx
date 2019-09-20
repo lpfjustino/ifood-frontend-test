@@ -7,10 +7,10 @@ export default class NumericFilter extends Component {
     constructor(props) {
         super(props);
 
-        this.onChange = this.onChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    onChange(value) {
+    handleChange(value) {
         const { name, setFilter } = this.props;
         setFilter(name, value);
     }
@@ -25,7 +25,7 @@ export default class NumericFilter extends Component {
         return (
             <div>
                 <InputNumber
-                    onChange={ this.onChange }
+                    onChange={ this.handleChange }
                     />
             </div>
         )
