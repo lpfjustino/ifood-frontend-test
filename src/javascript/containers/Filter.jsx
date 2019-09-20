@@ -11,6 +11,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         getFilters: () => dispatch(filterActions.getFilters()),
+        setFilter: (field, value) => dispatch(filterActions.setFilter(field, value)),
     };
 }
 

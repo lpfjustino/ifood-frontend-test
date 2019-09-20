@@ -4,12 +4,20 @@ import Filter from '../../javascript/components/Filter';
 
 describe("The Filter component", () => {
     const mockGetFilters = jest.fn();
+    const mockSetFilters = jest.fn();
+    const filters = { values: {} };
+    const mockProps = {
+        getFilters: mockGetFilters,
+        setFilter: mockSetFilters,
+        limitValue: 0,
+        filters,
+    }
 
     beforeEach(() => {
-        shallow(<Filter getFilters={ mockGetFilters } />);
+        shallow(<Filter { ...mockProps } />);
     });
 
-    it("renders the filter component", () => {
+    it("should call the getFilters function from props", () => {
         expect(mockGetFilters).toHaveBeenCalled();
     });
 });
