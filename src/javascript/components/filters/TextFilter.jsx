@@ -16,12 +16,6 @@ export default class TextFilter extends Component {
     }
 
     render() {
-        const { filter } = this.props;
-        const textFilter = filter
-        if (!textFilter) {
-            return null;
-        }
-
         return (
             <div>
                 <input
@@ -33,7 +27,6 @@ export default class TextFilter extends Component {
 }
 
 TextFilter.protoTypes = {
-    filter: PropTypes.object,
     setFilter: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
 }

@@ -14,9 +14,18 @@ export default class Filter extends Component {
     render() {
         const { filters, limitValue, getFilters, setFilter } = this.props;
         console.log(filters)
+        const {
+            limit,
+            locale,
+            country,
+            timestamp,
+            offset,
+        } = filters;
+
         return (
             <div className="filters-container">
                 <div className="filter-container" id="limit-filter-container">
+                    <div>{limit && limit.name || ""}</div>
                     <LimitFilter
                         filter={ filters.limit }
                         getFilters={ getFilters }
@@ -25,6 +34,7 @@ export default class Filter extends Component {
                         />
                 </div>
                 <div className="filter-container">
+                    <div>{locale && locale.name || ""}</div>
                     <SelectFilter
                         filter={ filters.locale }
                         setFilter={ setFilter }
@@ -32,6 +42,7 @@ export default class Filter extends Component {
                         />
                 </div>
                 <div className="filter-container">
+                    <div>{country && country.name || ""}</div>
                     <SelectFilter
                         filter={ filters.country }
                         setFilter={ setFilter }
@@ -39,6 +50,7 @@ export default class Filter extends Component {
                         />
                 </div>
                 <div className="filter-container">
+                    <div>{timestamp && timestamp.name || ""}</div>
                     <DateFilter
                         filter = { filters.timestamp }
                         setFilter={ setFilter }
@@ -46,6 +58,7 @@ export default class Filter extends Component {
                         />
                 </div>
                 <div className="filter-container">
+                    <div>{offset && offset.name || ""}</div>
                     <NumericFilter
                         filter = { filters.offset }
                         setFilter={ setFilter }
@@ -53,8 +66,8 @@ export default class Filter extends Component {
                         />
                 </div>
                 <div className="filter-container">
+                    <div>{filters && filters.name || ""}</div>
                     <TextFilter
-                        filter = { filters }
                         setFilter={ setFilter }
                         name="name"
                         />
