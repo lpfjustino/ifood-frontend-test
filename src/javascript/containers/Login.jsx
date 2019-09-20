@@ -10,7 +10,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        setAccessToken: token => dispatch(authActions.setAccessToken(token)),
+        setAccessToken: token => dispatch(spotifyActions.setAccessToken(token)),
     };
 }
 

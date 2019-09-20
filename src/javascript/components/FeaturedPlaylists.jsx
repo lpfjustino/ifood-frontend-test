@@ -1,19 +1,21 @@
 import React, { Component } from "react";
-import axios from "axios";
+
 
 export default class FeaturedPlaylists extends Component {
 
-    fetchFeaturedPlaylists() {
-        const headers = { Authorization: `Bearer ${this.props.accessToken}` }
-        console.log(headers);
-        axios.get("https://api.spotify.com/v1/browse/featured-playlists", { headers } );
+    renderPlaylists() {
+        const { playlists } = this.props;
+
+        return playlists.map(playlist => <div><img src={playlist.images[0].url} /></div>)
     }
-    
+
     render() {
-        this.props.accessToken && this.fetchFeaturedPlaylists();
+        const { accessToken, fetchFeaturedPlaylists, playlists } = this.props;
+        accessToken && playlists.length === 0 && fetchFeaturedPlaylists(accessToken);
+
         return (
             <div>
-                
+                { this.renderPlaylists() }
             </div>
         )
     }

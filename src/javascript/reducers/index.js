@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
 import filters from "./filters";
-import auth from "./spotify";
+import spotify from "./spotify";
 
 export default combineReducers({
     filters,
-    auth,
+    spotify,
 });
