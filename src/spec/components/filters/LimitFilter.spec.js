@@ -7,12 +7,10 @@ describe("The LimitFilter component", () => {
     let wrapper;
     const mockGetFilters = jest.fn();
     const mockSetFilters = jest.fn();
-    const filters = {};
     const mockProps = {
         getFilters: mockGetFilters,
         setFilter: mockSetFilters,
         limitValue: 0,
-        filters,
     }
 
     beforeEach(() => {
@@ -29,12 +27,10 @@ describe("The LimitFilter component", () => {
     it("should pass down props from the filter to the InputRange component", () => {
         const definedProps = {
             ...mockProps,
-            filters: {
-                limit: {
-                    validation: {
-                        min: 2,
-                        max: 5,
-                    }
+            filter: {
+                validation: {
+                    min: 2,
+                    max: 5,
                 }
             },
         }

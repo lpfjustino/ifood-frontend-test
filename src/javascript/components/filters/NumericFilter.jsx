@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import InputNumber from "rc-input-number";
+import PropTypes from "prop-types";
 
 export default class NumericFilter extends Component {
 
@@ -15,6 +16,12 @@ export default class NumericFilter extends Component {
     }
 
     render() {
+        const { filter } = this.props;
+        const numericFilter = filter
+        if (!numericFilter) {
+            return null;
+        }
+
         return (
             <div>
                 <InputNumber
@@ -23,4 +30,9 @@ export default class NumericFilter extends Component {
             </div>
         )
     }
+}
+
+NumericFilter.protoTypes = {
+    setFilter: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
 }

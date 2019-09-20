@@ -11,8 +11,8 @@ export default class SelectFilter extends Component {
     }
 
     getOptions() {
-        const { filter, name } = this.props;
-        const { values } = filter[ name ];
+        const { filter } = this.props;
+        const { values } = filter;
 
         return values.map(value => ({ label: value.name, value: value.value }));
     }
@@ -23,8 +23,7 @@ export default class SelectFilter extends Component {
     }
 
     render() {
-        const { filter, name } = this.props;
-        const selectFilter = filter[ name ]
+        const { filter: selectFilter } = this.props;
         if (!selectFilter) {
             return null;
         }

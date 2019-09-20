@@ -7,18 +7,16 @@ describe("The SelectFilter component", () => {
     let wrapper;
     const mockName = "filterName";
     const filter = {
-        [mockName]: {
-            values: [
-                {
-                    "name": "foo",
-                    "value": "bar",
-                },
-                {
-                    "name": "john",
-                    "value": "doe",
-                },
-            ]
-        }
+        values: [
+            {
+                "name": "foo",
+                "value": "bar",
+            },
+            {
+                "name": "john",
+                "value": "doe",
+            },
+        ]
     };
     const filterNameMock = "filterName";
     let setFilterSpy;
@@ -36,14 +34,14 @@ describe("The SelectFilter component", () => {
     describe("The getOptions function", () => {
         it("should return an array with objects formatted for the Select interface given the values", () => {
             const result = wrapper.instance().getOptions();
-            const expected = filter[mockName].values.map(value => ({ label: value.name, value: value.value }));
+            const expected = filter.values.map(value => ({ label: value.name, value: value.value }));
 
             expect(result).toMatchObject(expected);
         });
     });
 
     it("should not render the filter if it's not defined", () => {
-        wrapper.setProps({ filter: {} });
+        wrapper.setProps({ filter: undefined });
         const select = wrapper.find(Select);
 
         expect(select.length).toEqual(0);

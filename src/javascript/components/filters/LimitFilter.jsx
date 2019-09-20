@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 export default class LimitFilter extends Component {
     render() {
-        const limitFilter = this.props.filters.limit;
+        const {filter: limitFilter } = this.props;
         if (!limitFilter) {
             return null;
         }
@@ -25,8 +25,7 @@ export default class LimitFilter extends Component {
 }
 
 LimitFilter.propTypes = {
-    filters: PropTypes.object.isRequired,
-    getFilters: PropTypes.func.isRequired,
+    filter: PropTypes.object,
     limitValue: PropTypes.number,
     setFilter: PropTypes.func.isRequired,
 }

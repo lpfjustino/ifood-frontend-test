@@ -19,6 +19,10 @@ export default class DateFilter extends Component {
     render() {
         const { filter } = this.props;
         const value = _.get(filter, "values.timestamp", "");
+        const dateFilter = filter
+        if (!dateFilter) {
+            return null;
+        }
 
         return (
             <div>

@@ -18,7 +18,7 @@ export default class Filter extends Component {
             <div className="filters-container">
                 <div className="filter-container" id="limit-filter-container">
                     <LimitFilter
-                        filters={ filters }
+                        filter={ filters.limit }
                         getFilters={ getFilters }
                         limitValue={ limitValue }
                         setFilter={ setFilter }
@@ -26,33 +26,35 @@ export default class Filter extends Component {
                 </div>
                 <div className="filter-container">
                     <SelectFilter
-                        filter={ filters }
+                        filter={ filters.locale }
                         setFilter={ setFilter }
                         name="locale"
                         />
                 </div>
                 <div className="filter-container">
                     <SelectFilter
-                        filter={ filters }
+                        filter={ filters.country }
                         setFilter={ setFilter }
                         name="country"
                         />
                 </div>
                 <div className="filter-container">
                     <DateFilter
-                        filter = { filters }
+                        filter = { filters.timestamp }
                         setFilter={ setFilter }
                         name="timestamp"
                         />
                 </div>
                 <div className="filter-container">
                     <NumericFilter
+                        filter = { filters.offset }
                         setFilter={ setFilter }
                         name="offset"
                         />
                 </div>
                 <div className="filter-container">
                     <TextFilter
+                        filter = { filters }
                         setFilter={ setFilter }
                         name="name"
                         />
