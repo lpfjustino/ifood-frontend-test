@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import LimitFilter from "./filters/LimitFilter";
 import SelectFilter from "./filters/SelectFilter";
 import DateFilter from "./filters/DateFilter";
+import NumericFilter from "./filters/NumericFilter";
+import TextFilter from "./filters/TextFilter";
 import PropTypes from "prop-types";
 
 export default class Filter extends Component {
@@ -41,6 +43,17 @@ export default class Filter extends Component {
                         filter = { filters }
                         setFilter={ setFilter }
                         name="timestamp"
+                        />
+                </div>
+                <div className="filter-container">
+                    <NumericFilter
+                        setFilter={ setFilter }
+                        name="offset"
+                        />
+                </div>
+                <div className="filter-container">
+                    <TextFilter
+                        setFilter={ setFilter }
                         />
                 </div>
             </div>
