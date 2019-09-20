@@ -54,6 +54,7 @@ export default class Filter extends Component {
                 <div className="filter-container">
                     <TextFilter
                         setFilter={ setFilter }
+                        name="name"
                         />
                 </div>
             </div>
