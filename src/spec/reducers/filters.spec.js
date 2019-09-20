@@ -33,7 +33,7 @@ describe("The filters action creators", () => {
 
         const newState = reducer({}, action);
 
-        expect(newState["foo"]).toEqual("bar");
+        expect(newState.values["foo"]).toEqual("bar");
     });
 
     it("should not change state otherwise", () => {

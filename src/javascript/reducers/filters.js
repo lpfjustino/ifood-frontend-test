@@ -6,6 +6,7 @@ import {
 import { groupById } from "../utils";
 
 const defaultState = {
+    values: {},
 }
 
 export default (state = defaultState, action) => {
@@ -22,7 +23,10 @@ export default (state = defaultState, action) => {
         const { field, value } = action.payload;
         return {
             ...state,
-            [field]: value,
+            values: {
+                ...state.values,
+                [field]: value,
+            }
         }
         
         case `${GET_TRENDING_PLAYLISTS_FILTERS}_REJECTED`:

@@ -5,7 +5,7 @@ import Filter from '../../javascript/components/Filter';
 describe("The Filter component", () => {
     const mockGetFilters = jest.fn();
     const mockSetFilters = jest.fn();
-    const filters = {};
+    const filters = { values: {} };
     const mockProps = {
         getFilters: mockGetFilters,
         setFilter: mockSetFilters,

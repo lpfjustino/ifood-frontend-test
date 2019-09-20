@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import LimitFilter from "./filters/LimitFilter"
-import SelectFilter from "./filters/SelectFilter"
+import LimitFilter from "./filters/LimitFilter";
+import SelectFilter from "./filters/SelectFilter";
+import DateFilter from "./filters/DateFilter";
 import PropTypes from "prop-types";
 
 export default class Filter extends Component {
@@ -24,11 +25,20 @@ export default class Filter extends Component {
                 <div className="filter-container">
                     <SelectFilter
                         filter={ filters.locale }
+                        setFilter={ setFilter }
+                        name="locale"
                         />
                 </div>
                 <div className="filter-container">
                     <SelectFilter
                         filter={ filters.country }
+                        setFilter={ setFilter }
+                        name="country"
+                        />
+                </div>
+                <div className="filter-container">
+                    <DateFilter
+                        filter = { filters.timestamp }
                         />
                 </div>
             </div>

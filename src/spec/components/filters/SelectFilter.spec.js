@@ -17,9 +17,16 @@ describe("The SelectFilter component", () => {
             },
         ]
     };
-    const mockProps = { filter };
+    const filterNameMock = "filterName";
+    let setFilterSpy;
     
     beforeEach(() => {
+        setFilterSpy = jest.fn();
+        const mockProps = {
+            filter,
+            name: filterNameMock,
+            setFilter: setFilterSpy,
+        };
         wrapper = shallow(<SelectFilter { ...mockProps } />);
     });
     
@@ -33,7 +40,6 @@ describe("The SelectFilter component", () => {
     });
 
     it("should not render the filter if it's not defined", () => {
-        wrapper = shallow(<SelectFilter { ...mockProps } />);
         wrapper.setProps({ filter: null });
         const select = wrapper.find(Select);
 
@@ -43,7 +49,20 @@ describe("The SelectFilter component", () => {
     it("should pass down props from the filter to the Select component", () => {
         const select = wrapper.find(Select);
         const options = wrapper.instance().getOptions();
-
+        
         expect(select.prop("options")).toMatchObject(options);
     });
+
+    it("should call this.handleChange when the Select component state is changed", () => {
+        const select = wrapper.find(Select);
+        expect(select.prop("onChange")).toEqual(wrapper.instance().handleChange);
+    });
+
+    it("should call this.props.setFilter when some option is selected", () => {
+        const mockOption = { foo: "bar" };
+        wrapper.instance().handleChange(mockOption);
+
+        expect(setFilterSpy).toHaveBeenCalledWith(filterNameMock, mockOption);
+    });
+
 });
