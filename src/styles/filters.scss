@@ -1,0 +1,16 @@
+.filters-container {
+    display: flex;
+    border: 3px solid red;
+
+    .filter-container {
+        > div {
+            width: 100%;
+        }
+
+        width: 100%;
+        border: 2px solid blue;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+    }
+}
