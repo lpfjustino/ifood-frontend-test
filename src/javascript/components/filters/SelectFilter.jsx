@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import Select from "react-select";
-import _ from "lodash";
 
 export default class SelectFilter extends Component {
 
@@ -18,7 +17,7 @@ export default class SelectFilter extends Component {
 
         return (
             <div>
-                <Select options={this.getOptions()} />
+                <Select options={ this.getOptions() } />
             </div>
         )
     }
