@@ -6,12 +6,13 @@ function mapStateToProps(state) {
     return {
         accessToken: state.spotify.accessToken,
         playlists: state.spotify.playlists,
+        filters: state.filters.values,
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchFeaturedPlaylists: accessToken => dispatch(spotifyActions.fetchFeaturedPlaylists(accessToken)),
+        fetchFeaturedPlaylists: (accessToken, filters) => dispatch(spotifyActions.fetchFeaturedPlaylists(accessToken, filters)),
     };
 }
 

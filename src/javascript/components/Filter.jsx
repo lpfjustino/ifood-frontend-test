@@ -5,14 +5,24 @@ import DateFilter from "./filters/DateFilter";
 import NumericFilter from "./filters/NumericFilter";
 import TextFilter from "./filters/TextFilter";
 import PropTypes from "prop-types";
+import _ from "lodash";
 
 export default class Filter extends Component {
+
     componentDidMount() {
         this.props.getFilters();
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        const { accessToken, filters, fetchPlaylists } = this.props;
+        const { values: currentFilters } = filters;
+        const { values: oldFilters } = prevProps.filters;
+        const filtersChanged = !_.isEqual(currentFilters, oldFilters);
+        filtersChanged && fetchPlaylists(accessToken, currentFilters);
+    }
+
     render() {
-        const { filters, getFilters, setFilter } = this.props;
+        const { filters, setFilter } = this.props;
         const {
             limit,
             locale,
@@ -53,7 +63,7 @@ export default class Filter extends Component {
                     <DateFilter
                         filter={ filters.timestamp }
                         setFilter={ setFilter }
-                        value={ filters.values.timestamp }
+                        value={ _.get(filters, "values.timestamp.value", null) }
                         name="timestamp"
                         />
                 </div>

@@ -5,14 +5,26 @@ export default class FeaturedPlaylists extends Component {
 
     renderPlaylists() {
         const { playlists } = this.props;
-        console.log(playlists)
 
         return playlists.map(playlist => <PlaylistCard playlist={playlist} />);
     }
 
+    fetchPlayLists() {
+        const { accessToken, fetchFeaturedPlaylists, filters } = this.props;
+        fetchFeaturedPlaylists(accessToken, filters);
+    }
+
+    componentDidMount() {
+        // this.interval = setInterval(() => this.fetchPlayLists(), 5000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+    
     render() {
-        const { accessToken, fetchFeaturedPlaylists, playlists } = this.props;
-        accessToken && playlists.length === 0 && fetchFeaturedPlaylists(accessToken);
+        const { accessToken, playlists } = this.props;
+        accessToken && playlists.length === 0 && this.fetchPlayLists();
 
         return (
             <div className="playlists-list">

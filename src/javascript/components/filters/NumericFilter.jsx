@@ -12,7 +12,7 @@ export default class NumericFilter extends Component {
 
     handleChange(value) {
         const { name, setFilter } = this.props;
-        setFilter(name, value);
+        setFilter(name, { value });
     }
 
     render() {

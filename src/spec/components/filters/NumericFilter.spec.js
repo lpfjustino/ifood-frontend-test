@@ -24,8 +24,8 @@ describe("The NumericFilter component", () => {
     });
     
     it("should call setFilter from props when handleChange is called", () => {
-        const mockNumber = {};
+        const mockNumber = 0;
         wrapper.instance().handleChange(mockNumber);
-        expect(mockSetFilters).toHaveBeenCalledWith(mockName, mockNumber);
+        expect(mockSetFilters).toHaveBeenCalledWith(mockName, { value: mockNumber });
     });
 });

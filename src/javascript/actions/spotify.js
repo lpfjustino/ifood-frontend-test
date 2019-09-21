@@ -2,8 +2,9 @@ import {
     SET_ACCESS_TOKEN,
     FETCH_FEATURED_PLAYLISTS,
 } from "../constants/index.json";
-import { SPOTIFY_FEATURED_PLAYLISTS } from "../constants/urls.js";
 import axios from "axios";
+import { SPOTIFY_FEATURED_PLAYLISTS } from "../constants/urls.js";
+import { param } from "../utils/index.js";
 
 const actionCreators = {
     setAccessToken(token) {
@@ -13,12 +14,16 @@ const actionCreators = {
         };
     },
 
-    fetchFeaturedPlaylists(accessToken) {
+    fetchFeaturedPlaylists(accessToken, filters) {
         const headers = { Authorization: `Bearer ${accessToken}` }
+        const queryString = param(filters);
+        console.log(filters, queryString, accessToken);
+        const url = `${SPOTIFY_FEATURED_PLAYLISTS}?${queryString}`;
+
         return {
             type: FETCH_FEATURED_PLAYLISTS,
             payload: { 
-                promise: axios.get(SPOTIFY_FEATURED_PLAYLISTS, { headers } ),
+                promise: axios.get(url, { headers } ),
             },
         };
     }

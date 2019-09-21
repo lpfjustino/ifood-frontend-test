@@ -17,3 +17,7 @@ export const groupBy = key => array =>
   }, {});
 
 export const groupById = groupBy("id");
+
+export const param = params => params && Object.keys(params)
+    .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k].value))
+    .join('&');

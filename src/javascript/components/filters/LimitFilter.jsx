@@ -17,7 +17,7 @@ export default class LimitFilter extends Component {
     };
 
     render() {
-        const {filter: limitFilter, limitValue } = this.props;
+        const {filter: limitFilter } = this.props;
         if (!limitFilter) {
             return null;
         }

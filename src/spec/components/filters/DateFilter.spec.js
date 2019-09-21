@@ -28,20 +28,21 @@ describe("The DateFilter component", () => {
     it("should call setFilter from props when handleChange is called", () => {
         const mockDate = {};
         wrapper.instance().handleChange(mockDate);
-        expect(mockSetFilters).toHaveBeenCalledWith(mockName, mockDate);
+        expect(mockSetFilters).toHaveBeenCalled();
     });
 
     it("should pass down props from the filter to the DatePicker component", () => {
+        const mockDate = new Date();
         const definedProps = {
             ...mockProps,
             filter: {},
-            value: "foo",
+            value: mockDate,
         }
         wrapper = shallow(<DateFilter { ...definedProps } />)
         const datePicker = wrapper.find(DatePicker);
 
         expect(datePicker.props()).toMatchObject({
-            selected: "foo",
+            selected: mockDate,
         });
     });
 });
