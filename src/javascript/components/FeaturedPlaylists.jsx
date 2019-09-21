@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-
+import PlaylistCard from "./PlaylistCard";
 
 export default class FeaturedPlaylists extends Component {
 
     renderPlaylists() {
         const { playlists } = this.props;
+        console.log(playlists)
 
-        return playlists.map(playlist => <div><img src={playlist.images[0].url} /></div>)
+        return playlists.map(playlist => <PlaylistCard playlist={playlist} />);
     }
 
     render() {
