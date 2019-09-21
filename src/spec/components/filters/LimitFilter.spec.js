@@ -25,9 +25,9 @@ describe("The LimitFilter component", () => {
     });
     
     it("should call setFilter from props when handleChange is called", () => {
-        const mockLimit = {};
+        const mockLimit = 0;
         wrapper.instance().handleChange(mockLimit);
-        expect(mockSetFilters).toHaveBeenCalledWith(mockName, mockLimit);
+        expect(mockSetFilters).toHaveBeenCalledWith(mockName, { value: mockLimit });
     });
         
     it("should pass down props from the filter to the InputRange component", () => {

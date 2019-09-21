@@ -37,7 +37,7 @@ export default class Filter extends Component {
                     <div className="filter-name">{ (limit && limit.name) || "" }</div>
                     <LimitFilter
                         filter={ filters.limit }
-                        limitValue={ filters.values.limit }
+                        limitValue={ _.get(filters, "values.limit.value", null) }
                         setFilter={ setFilter }
                         name="limit"
                         />

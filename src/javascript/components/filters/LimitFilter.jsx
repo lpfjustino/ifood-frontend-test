@@ -13,7 +13,7 @@ export default class LimitFilter extends Component {
 
     handleChange(value) {
         const { name, setFilter } = this.props
-        setFilter(name, value);
+        setFilter(name, { value });
     };
 
     render() {
