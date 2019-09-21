@@ -33,6 +33,7 @@ export default class SelectFilter extends Component {
                 <Select
                     options={ this.getOptions() } 
                     onChange={ this.handleChange }
+                    classNamePrefix="select-filter"
                     />
             </div>
         )
