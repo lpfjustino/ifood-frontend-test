@@ -1,16 +1,16 @@
 import { connect } from "react-redux";
-import authActions from "../actions/auth";
+import spotifyActions from "../actions/spotify";
 import Login from "../components/Login";
 
 function mapStateToProps(state) {
     return {
-        accessToken: state.auth.accessToken,
+        accessToken: state.spotify.accessToken,
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        setAccessToken: token => dispatch(authActions.setAccessToken(token)),
+        setAccessToken: token => dispatch(spotifyActions.setAccessToken(token)),
     };
 }
 

@@ -1,10 +1,10 @@
 import { SET_ACCESS_TOKEN } from "../../javascript/constants";
-import authActions from "../../javascript/actions/auth.js";
+import spotifyActions from "../../javascript/actions/spotify";
 
 describe("The filters action creators", () => {
     it("should return action", () => {
         const mockToken = "foo";
-        const actionCreator = authActions.setAccessToken(mockToken);
+        const actionCreator = spotifyActions.setAccessToken(mockToken);
         expect(actionCreator).toEqual({
             type: SET_ACCESS_TOKEN,
             payload: {
