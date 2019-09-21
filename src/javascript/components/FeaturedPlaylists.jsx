@@ -24,7 +24,8 @@ export default class FeaturedPlaylists extends Component {
     }
 
     componentDidMount() {
-        // this.interval = setInterval(() => this.fetchPlayLists(), 5000);
+        // TODO: perhaps turn 30s a environment variable?
+        this.interval = setInterval(() => this.fetchPlayLists(), 30000);
     }
 
     componentWillUnmount() {
