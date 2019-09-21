@@ -1,12 +1,21 @@
 import React, { Component } from "react";
 import PlaylistCard from "./PlaylistCard";
 
+const matchesFilter = (playlist, filter) => {
+    const playlistName = playlist.name.toUpperCase()
+    const nameFilter = filter.toUpperCase();
+    return playlistName.includes(nameFilter);
+}
+
 export default class FeaturedPlaylists extends Component {
 
     renderPlaylists() {
-        const { playlists } = this.props;
+        const { playlists, filters } = this.props;
+        const filteredPlaylists = filters.name
+            ? playlists.filter(playlist => matchesFilter(playlist, filters.name))
+            : playlists
 
-        return playlists.map(playlist => <PlaylistCard playlist={playlist} />);
+        return filteredPlaylists.map(playlist => <PlaylistCard playlist={playlist} />);
     }
 
     fetchPlayLists() {
