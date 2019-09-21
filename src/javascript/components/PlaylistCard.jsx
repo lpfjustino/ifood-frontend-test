@@ -13,14 +13,15 @@ const playlistLink = playlist => _.get(playlist, "external_urls.spotify", "");
 const PlaylistCard = props => {
     const { playlist } = props;
     return (
-    <div>
-        <Card>
+    <div className="playlists-container">
+        <Card body inverse className="playlist-card">
         <CardImg top width="100%" src={playlistImage(playlist)} alt="Card image cap" />
         <CardBody>
             <CardTitle>{playlistName(playlist)}</CardTitle>
             <CardSubtitle>{playlistOwner(playlist)}</CardSubtitle>
             <Button
-                onClick={()=> window.open(playlistLink(playlist), "_blank")}>
+                onClick={()=> window.open(playlistLink(playlist), "_blank")}
+                variant="primary">
                     Go to playlist
             </Button>
         </CardBody>

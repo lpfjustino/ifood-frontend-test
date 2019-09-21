@@ -15,7 +15,7 @@ export default class FeaturedPlaylists extends Component {
         accessToken && playlists.length === 0 && fetchFeaturedPlaylists(accessToken);
 
         return (
-            <div>
+            <div className="playlists-list">
                 { this.renderPlaylists() }
             </div>
         )
