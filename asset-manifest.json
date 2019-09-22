@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/ifood-frontend-test/static/css/main.4bc362c3.chunk.css",
-    "main.js": "/ifood-frontend-test/static/js/main.78f9a21c.chunk.js",
-    "main.js.map": "/ifood-frontend-test/static/js/main.78f9a21c.chunk.js.map",
+    "main.css": "/ifood-frontend-test/static/css/main.363fb72d.chunk.css",
+    "main.js": "/ifood-frontend-test/static/js/main.4a7bc285.chunk.js",
+    "main.js.map": "/ifood-frontend-test/static/js/main.4a7bc285.chunk.js.map",
     "runtime~main.js": "/ifood-frontend-test/static/js/runtime~main.cd2ae8d1.js",
     "runtime~main.js.map": "/ifood-frontend-test/static/js/runtime~main.cd2ae8d1.js.map",
-    "static/css/2.b15e64a8.chunk.css": "/ifood-frontend-test/static/css/2.b15e64a8.chunk.css",
-    "static/js/2.c287969f.chunk.js": "/ifood-frontend-test/static/js/2.c287969f.chunk.js",
-    "static/js/2.c287969f.chunk.js.map": "/ifood-frontend-test/static/js/2.c287969f.chunk.js.map",
+    "static/css/2.70e8ad21.chunk.css": "/ifood-frontend-test/static/css/2.70e8ad21.chunk.css",
+    "static/js/2.10141220.chunk.js": "/ifood-frontend-test/static/js/2.10141220.chunk.js",
+    "static/js/2.10141220.chunk.js.map": "/ifood-frontend-test/static/js/2.10141220.chunk.js.map",
     "index.html": "/ifood-frontend-test/index.html",
-    "precache-manifest.5e96d2fae115a9acc3377a14c7825b8a.js": "/ifood-frontend-test/precache-manifest.5e96d2fae115a9acc3377a14c7825b8a.js",
+    "precache-manifest.bbf84cbf3ee5fc12c5e5e771c24b48fa.js": "/ifood-frontend-test/precache-manifest.bbf84cbf3ee5fc12c5e5e771c24b48fa.js",
     "service-worker.js": "/ifood-frontend-test/service-worker.js",
-    "static/css/2.b15e64a8.chunk.css.map": "/ifood-frontend-test/static/css/2.b15e64a8.chunk.css.map",
-    "static/css/main.4bc362c3.chunk.css.map": "/ifood-frontend-test/static/css/main.4bc362c3.chunk.css.map"
+    "static/css/2.70e8ad21.chunk.css.map": "/ifood-frontend-test/static/css/2.70e8ad21.chunk.css.map",
+    "static/css/main.363fb72d.chunk.css.map": "/ifood-frontend-test/static/css/main.363fb72d.chunk.css.map",
+    "static/media/logo.png": "/ifood-frontend-test/static/media/logo.819894ce.png"
   }
 }
