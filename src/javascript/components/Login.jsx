@@ -5,14 +5,29 @@ import PropTypes from "prop-types";
 
 export default class Login extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.clearExpiredToken = this.clearExpiredToken.bind(this);
+    }
+
     componentDidMount() {
         const { accessToken } = this.props;
         const hash = parseHash(window.location.hash);
         const token = hash.access_token;
+        const expiration = hash.expires_in;
 
         if (!accessToken && token) {
             this.props.setAccessToken(token);
         }
+
+        if (expiration) {
+            setTimeout(this.clearExpiredToken, expiration);
+        }
+    }
+
+    clearExpiredToken() {
+        this.props.setAccessToken(null);
     }
 
     getLoginURL() {
@@ -29,7 +44,8 @@ export default class Login extends Component {
 
         return !accessToken && (
             <div className="login-container">
-                <a href={this.getLoginURL()}>Login</a>
+                <span className="login-request">Please log in using your Spotify account to be able to see the playlists </span>
+                <a href={this.getLoginURL()} className="button">Login</a>
             </div>
         )
     }
