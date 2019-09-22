@@ -32,8 +32,7 @@ export default class Login extends Component {
 
     getLoginURL() {
         const client_id = "91a84a82e4e34192a860659488ce3ecf"
-        // TODO: Make this an env variable
-        const redirect_uri = "http://localhost:3000";
+        const redirect_uri = process.env.REACT_APP_REDIRECT_URL;
         const url = `${SPOTIFY_AUTHORIZE}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=token&show_dialog=true`;
 
         return url;
