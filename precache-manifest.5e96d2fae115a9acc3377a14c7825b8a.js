@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "708ace2cd066fd3bf0bc760fc3b7fc78",
+    "revision": "dd8de0134aae17d3761180e156ac1a07",
     "url": "/ifood-frontend-test/index.html"
   },
   {
-    "revision": "eaa55821297af1274c7b",
+    "revision": "5c093c161626a5e6c6c6",
     "url": "/ifood-frontend-test/static/css/2.b15e64a8.chunk.css"
   },
   {
-    "revision": "050e227ad4be1e0ee296",
+    "revision": "b143547935e5b2780b4c",
     "url": "/ifood-frontend-test/static/css/main.4bc362c3.chunk.css"
   },
   {
-    "revision": "eaa55821297af1274c7b",
-    "url": "/ifood-frontend-test/static/js/2.8872bf7b.chunk.js"
+    "revision": "5c093c161626a5e6c6c6",
+    "url": "/ifood-frontend-test/static/js/2.c287969f.chunk.js"
   },
   {
-    "revision": "050e227ad4be1e0ee296",
-    "url": "/ifood-frontend-test/static/js/main.74967195.chunk.js"
+    "revision": "b143547935e5b2780b4c",
+    "url": "/ifood-frontend-test/static/js/main.78f9a21c.chunk.js"
   },
   {
     "revision": "ed87ac6da917a6cb849d",
