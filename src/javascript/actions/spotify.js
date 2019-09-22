@@ -17,7 +17,6 @@ const actionCreators = {
     fetchFeaturedPlaylists(accessToken, filters) {
         const headers = { Authorization: `Bearer ${accessToken}` }
         const queryString = param(filters);
-        console.log(filters, queryString, accessToken);
         const url = `${SPOTIFY_FEATURED_PLAYLISTS}?${queryString}`;
 
         return {

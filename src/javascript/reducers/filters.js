@@ -29,7 +29,6 @@ export default (state = defaultState, action) => {
             }
         }
         
-        case `${GET_TRENDING_PLAYLISTS_FILTERS}_REJECTED`:
         default:
             return { ...state };
     }

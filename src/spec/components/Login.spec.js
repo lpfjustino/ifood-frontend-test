@@ -36,4 +36,18 @@ describe("The Login component", () => {
 
         expect(mockSetAccessToken).toHaveBeenCalledWith(token);
     });
+
+    it("should clear the token when it expires", () => {
+        wrapper.instance().clearExpiredToken();
+        expect(mockSetAccessToken).toHaveBeenCalledWith(null);
+    });
+
+    it("should set a timer to clear the token when it expires when component mounts", (done) => {
+        window.location = { "hash": "#expires_in=50" };
+        shallow(<Login setAccessToken={ mockSetAccessToken } />);
+        setTimeout(() => {
+            expect(mockSetAccessToken).toHaveBeenCalled();
+            done();
+        }, 50);
+    });
 });

@@ -7,11 +7,11 @@ import filterActions from "../../javascript/actions/filters.js";
 describe("The filters action creators", () => {
     describe("The getFilters action", () => {
         it("should return a promise on the payload", () => {
-            const actionCreator = filterActions.getFilters();
-            expect(actionCreator).toEqual({
+            const action = filterActions.getFilters();
+            expect(action).toEqual({
                 type: GET_TRENDING_PLAYLISTS_FILTERS,
                 payload: {
-                    promise: jasmine.any(Object)
+                    promise: jasmine.any(Object),
                 },
             });
         });

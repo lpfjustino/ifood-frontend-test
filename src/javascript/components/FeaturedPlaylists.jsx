@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PlaylistCard from "./PlaylistCard";
+import _ from "lodash";
+import PropTypes from "prop-types";
 
 const matchesFilter = (playlist, filter) => {
     const playlistName = playlist.name.toUpperCase()
@@ -11,21 +13,21 @@ export default class FeaturedPlaylists extends Component {
 
     renderPlaylists() {
         const { playlists, filters } = this.props;
-        const filteredPlaylists = filters.name
+        const nameFilter = _.get(filters, "name");
+        const filteredPlaylists = nameFilter
             ? playlists.filter(playlist => matchesFilter(playlist, filters.name))
-            : playlists
+            : playlists;
 
-        return filteredPlaylists.map(playlist => <PlaylistCard playlist={playlist} />);
+        return filteredPlaylists.map(playlist => <PlaylistCard playlist={playlist} key={_.uniq(playlist.name)} />);
     }
 
-    fetchPlayLists() {
+    fetchPlaylists() {
         const { accessToken, fetchFeaturedPlaylists, filters } = this.props;
         fetchFeaturedPlaylists(accessToken, filters);
     }
 
     componentDidMount() {
-        // TODO: perhaps turn 30s a environment variable?
-        this.interval = setInterval(() => this.fetchPlayLists(), 30000);
+        this.interval = setInterval(() => this.fetchPlaylists(), 30000);
     }
 
     componentWillUnmount() {
@@ -34,7 +36,7 @@ export default class FeaturedPlaylists extends Component {
     
     render() {
         const { accessToken, playlists } = this.props;
-        accessToken && playlists.length === 0 && this.fetchPlayLists();
+        accessToken && playlists.length === 0 && this.fetchPlaylists();
 
         return (
             <div className="playlists-list">
@@ -42,4 +44,12 @@ export default class FeaturedPlaylists extends Component {
             </div>
         )
     }
+}
+
+FeaturedPlaylists.propTypes = {
+    getFilters: PropTypes.func,
+    setFilter: PropTypes.func,
+    fetchPlaylists: PropTypes.func,
+    accessToken: PropTypes.string,
+    filters: PropTypes.object,
 }

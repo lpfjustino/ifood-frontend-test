@@ -19,8 +19,7 @@ export default (state = defaultState, action) => {
             };
 
         case `${FETCH_FEATURED_PLAYLISTS}_FULFILLED`:
-            console.log(action.payload);
-            const playlists = _.get(action.payload.data, "playlists.items", []);
+            const playlists = _.get(action.payload, "data.playlists.items", []);
             return {
                 ...state,
                 playlists,

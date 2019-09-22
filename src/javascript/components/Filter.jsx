@@ -89,7 +89,9 @@ export default class Filter extends Component {
 
 Filter.propTypes = {
     filters: PropTypes.object.isRequired,
-    getFilters: PropTypes.func.isRequired,
     limitValue: PropTypes.number,
+    accessToken: PropTypes.string,
+    fetchPlaylists: PropTypes.func.isRequired,
+    getFilters: PropTypes.func.isRequired,
     setFilter: PropTypes.func.isRequired,
 }

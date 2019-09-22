@@ -12,7 +12,7 @@ const playlistLink = playlist => _.get(playlist, "external_urls.spotify", "");
 
 const PlaylistCard = props => {
     const { playlist } = props;
-    return (
+    return playlist && (
     <div className="playlists-container">
         <Card body inverse className="playlist-card">
         <CardImg top width="100%" src={playlistImage(playlist)} alt="Card image cap" />

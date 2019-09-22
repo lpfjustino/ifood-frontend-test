@@ -5,13 +5,13 @@ import Filter from '../../javascript/containers/Filter';
 
 describe("The App component", () => {
     it("renders without crashing", () => {
-    shallow(<App />);
+        shallow(<App />);
     });
 
     it("renders the filter component", () => {
-    const wrapper = shallow(<App />);
-    const filter = wrapper.find(Filter);
+        const wrapper = shallow(<App />);
+        const filter = wrapper.find(Filter);
 
-    expect(filter.length).toEqual(1);;
+        expect(filter.length).toEqual(1);;
     });
 });
