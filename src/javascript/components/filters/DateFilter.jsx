@@ -20,8 +20,7 @@ export default class DateFilter extends Component {
     };
 
     render() {
-        const { filter, value } = this.props;
-        const dateFilter = filter
+        const { filter: dateFilter, value } = this.props;
         if (!dateFilter) {
             return null;
         }
@@ -29,11 +28,14 @@ export default class DateFilter extends Component {
         const formattedDate = value ? moment(value).toDate() : null;
 
         return (
-            <div>
-                <DatePicker
-                    onChange={ this.handleChange }
-                    selected={ formattedDate }
-                    />
+            <div className="filter-container">
+                <div className="filter-name">{ (dateFilter && dateFilter.name) || "" }</div>
+                <div>
+                    <DatePicker
+                        onChange={ this.handleChange }
+                        selected={ formattedDate }
+                        />
+                </div>
             </div>
         )
     }

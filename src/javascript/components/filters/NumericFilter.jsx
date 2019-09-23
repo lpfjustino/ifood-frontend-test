@@ -16,17 +16,19 @@ export default class NumericFilter extends Component {
     }
 
     render() {
-        const { filter } = this.props;
-        const numericFilter = filter
+        const { filter: numericFilter } = this.props;
         if (!numericFilter) {
             return null;
         }
 
         return (
-            <div>
-                <InputNumber
-                    onChange={ this.handleChange }
-                    />
+            <div className="filter-container">
+                <div className="filter-name">{ (numericFilter && numericFilter.name) || "" }</div>
+                <div>
+                    <InputNumber
+                        onChange={ this.handleChange }
+                        />
+                </div>
             </div>
         )
     }

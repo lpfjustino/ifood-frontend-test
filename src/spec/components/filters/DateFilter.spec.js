@@ -1,25 +1,29 @@
 import React from "react";
 import DatePicker from "react-datepicker";
 import { shallow } from "enzyme";
+import moment from "moment";
 import DateFilter from "../../../javascript/components/filters/DateFilter";
 
 describe("The DateFilter component", () => {
     let wrapper;
     let mockSetFilters;
     const mockName = "dateFilter";
+    const mockDate = new Date();
     let mockProps;
 
     beforeEach(() => {
         mockSetFilters = jest.fn();
         mockProps = {
+            filter: {},
             setFilter: mockSetFilters,
             name: mockName,
+            value: mockDate,
         };
         wrapper = shallow(<DateFilter { ...mockProps } />);
     });
 
     it("should not render the filter if it's not defined", () => {
-        wrapper = shallow(<DateFilter { ...mockProps } />)
+        wrapper.setProps({ filter: null });
         const datePicker = wrapper.find(DatePicker);
 
         expect(datePicker.length).toEqual(0);
@@ -45,4 +49,17 @@ describe("The DateFilter component", () => {
             selected: mockDate,
         });
     });
+
+    it("should pass down a Moment object as the selected value to DatePicker if a value is given", () => {
+        const datePicker = wrapper.find(DatePicker);
+        const expectedDate = moment(mockDate).toDate();
+        expect(datePicker.prop("selected")).toEqual(expectedDate);
+    });
+
+    it("should pass down null as the selected value to DatePicker if a value is given", () => {
+        wrapper.setProps({ value: null });
+        const datePicker = wrapper.find(DatePicker);
+        expect(datePicker.prop("selected")).toEqual(null);
+    });
+
 });

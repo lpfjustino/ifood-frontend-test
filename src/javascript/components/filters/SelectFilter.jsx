@@ -29,12 +29,15 @@ export default class SelectFilter extends Component {
         }
 
         return (
-            <div>
-                <Select
-                    options={ this.getOptions() } 
-                    onChange={ this.handleChange }
-                    classNamePrefix="select-filter"
-                    />
+            <div className="filter-container">
+                <div className="filter-name">{ (selectFilter && selectFilter.name) || "" }</div>
+                <div>
+                    <Select
+                        options={ this.getOptions() } 
+                        onChange={ this.handleChange }
+                        classNamePrefix="select-filter"
+                        />
+                </div>
             </div>
         )
     }

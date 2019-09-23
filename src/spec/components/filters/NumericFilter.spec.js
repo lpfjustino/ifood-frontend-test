@@ -8,6 +8,7 @@ describe("The NumericFilter component", () => {
     const mockSetFilters = jest.fn();
     const mockName = "limit";
     const mockProps = {
+        filter: {},
         setFilter: mockSetFilters,
         name: mockName,
     }
@@ -17,7 +18,7 @@ describe("The NumericFilter component", () => {
     });
 
     it("should not render the filter if it's not defined", () => {
-        wrapper = shallow(<NumericFilter { ...mockProps } />)
+        wrapper.setProps({ filter: null });
         const inputNumber = wrapper.find(InputNumber);
 
         expect(inputNumber.length).toEqual(0);

@@ -26,13 +26,17 @@ export default class LimitFilter extends Component {
         const max = _.get(limitFilter, "validation.max", null);
         const isFilterLoaded = min && max;
 
-        return <InputRange
-            maxValue={max}
-            minValue={min}
-            disabled={!isFilterLoaded}
-            value={this.props.limitValue || min}
-            onChange={this.handleChange}
-            />;
+        return (<div className="filter-container" id="limit-filter-container">
+            <div className="filter-name">{ (limitFilter && limitFilter.name) || "" }</div>
+            <InputRange
+                maxValue={max}
+                minValue={min}
+                disabled={!isFilterLoaded}
+                value={this.props.limitValue || min}
+                onChange={this.handleChange}
+                />
+            </div>
+        );
     }
 }
 

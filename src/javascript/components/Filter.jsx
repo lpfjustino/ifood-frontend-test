@@ -23,58 +23,36 @@ export default class Filter extends Component {
 
     render() {
         const { filters, setFilter } = this.props;
-        const {
-            limit,
-            locale,
-            country,
-            timestamp,
-            offset,
-        } = filters;
 
         return (
             <div className="filters-container">
-                <div className="filter-container" id="limit-filter-container">
-                    <div className="filter-name">{ (limit && limit.name) || "" }</div>
-                    <LimitFilter
-                        filter={ filters.limit }
-                        limitValue={ _.get(filters, "values.limit.value", null) }
-                        setFilter={ setFilter }
-                        name="limit"
-                        />
-                </div>
-                <div className="filter-container">
-                    <div className="filter-name">{ (locale && locale.name) || "" }</div>
-                    <SelectFilter
-                        filter={ filters.locale }
-                        setFilter={ setFilter }
-                        name="locale"
-                        />
-                </div>
-                <div className="filter-container">
-                    <div className="filter-name">{ (country && country.name) || "" }</div>
-                    <SelectFilter
-                        filter={ filters.country }
-                        setFilter={ setFilter }
-                        name="country"
-                        />
-                </div>
-                <div className="filter-container">
-                    <div className="filter-name">{ (timestamp && timestamp.name) || "" }</div>
-                    <DateFilter
-                        filter={ filters.timestamp }
-                        setFilter={ setFilter }
-                        value={ _.get(filters, "values.timestamp.value", null) }
-                        name="timestamp"
-                        />
-                </div>
-                <div className="filter-container">
-                    <div className="filter-name">{ (offset && offset.name) || "" }</div>
-                    <NumericFilter
-                        filter = { filters.offset }
-                        setFilter={ setFilter }
-                        name="offset"
-                        />
-                </div>
+                <LimitFilter
+                    filter={ filters.limit }
+                    limitValue={ _.get(filters, "values.limit.value", null) }
+                    setFilter={ setFilter }
+                    name="limit"
+                    />
+                <SelectFilter
+                    filter={ filters.locale }
+                    setFilter={ setFilter }
+                    name="locale"
+                    />
+                <SelectFilter
+                    filter={ filters.country }
+                    setFilter={ setFilter }
+                    name="country"
+                    />
+                <DateFilter
+                    filter={ filters.timestamp }
+                    setFilter={ setFilter }
+                    value={ _.get(filters, "values.timestamp.value", null) }
+                    name="timestamp"
+                    />
+                <NumericFilter
+                    filter={ filters.offset }
+                    setFilter={ setFilter }
+                    name="offset"
+                    />
                 <div className="filter-container">
                     <div className="filter-name">Nome</div>
                     <TextFilter
