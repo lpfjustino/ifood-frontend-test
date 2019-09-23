@@ -6,7 +6,6 @@ import Filter from "../containers/Filter";
 import FeaturedPlaylists from "../containers/FeaturedPlaylists";
 import Header from "./Header";
 
-
 class App extends Component {
   render() {
     return (

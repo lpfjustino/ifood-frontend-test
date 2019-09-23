@@ -3,15 +3,14 @@ import { shallow } from "enzyme";
 import Header from "../../javascript/components/Header";
 
 describe("The NumericFilter component", () => {
-    let wrapper;
+  let wrapper;
 
-    beforeEach(() => {
-        wrapper = shallow(<Header />);
-    });
+  beforeEach(() => {
+    wrapper = shallow(<Header />);
+  });
 
-    it("should render the logo image", () => {
-        const logo = wrapper.find("img");
-        expect(logo.length).toEqual(1);
-    });
-
+  it("should render the logo image", () => {
+    const logo = wrapper.find("img");
+    expect(logo.length).toEqual(1);
+  });
 });

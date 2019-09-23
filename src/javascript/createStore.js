@@ -5,10 +5,10 @@ import rootReducer from "./reducers";
 let createStoreWithMiddleware;
 
 export default () => {
-    createStoreWithMiddleware = compose(
-        applyMiddleware(ReduxPromise, ReduxThunk)
-    )(createStore);
+  createStoreWithMiddleware = compose(
+    applyMiddleware(ReduxPromise, ReduxThunk),
+  )(createStore);
 
-    const store = createStoreWithMiddleware(rootReducer);
-    return store;
-}
+  const store = createStoreWithMiddleware(rootReducer);
+  return store;
+};
